@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+          background-color: #f2f2f2;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        p {
+          font-size: 14px;
+        }
+        label {
+          font-size: 20px;
+        }
+      </style>
+</head>
+<body>
+    <h1>Sign-Up</h1>
+    <form action="/user" method="post">
+        <label>Enter your full Name : </label>
+        <input type="text" name="name" required>
+        <label>Enter Email : </label>
+        <input type="text" name="email" required>
+        <label>Enter Password : </label>
+        <input type="text" name="password" required>
+
+        <button type="submit">Sign-Up</button>
+    </form>
+</body>
+</html>
