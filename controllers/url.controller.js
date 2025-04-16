@@ -15,6 +15,7 @@ async function handleGenerateNewShortURL(req, res) {
     shortId,
     redirectURL: url,
     visitHistory: [],
+    createdBy: req.user._id
   });
 
   const allUrls = await URL.find({});

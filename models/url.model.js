@@ -18,6 +18,10 @@ const urlSchema = new mongoose.Schema(
         },
       },
     ],
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId, // means mai 1 id dunga to use user ko refrence kregi
+      ref: 'users'
+    }
   },
   { timestamps: true }
 );
