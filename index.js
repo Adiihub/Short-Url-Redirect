@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const URL = require("./models/url.model.js");
 const { connectToMongoDB } = require("./connect.js");
-const { restrictToLoggedinUserOnly } = require('./middlewares/auth.mw.js');
+const { restrictToLoggedinUserOnly, checkAuth } = require('./middlewares/auth.mw.js');
 const cookieParser = require('cookie-parser');
 
 const staticRoute = require('./routes/staticRouter.js')
@@ -34,7 +34,7 @@ app.get("/test", async(req, res) => {
 
 app.use("/url", restrictToLoggedinUserOnly ,urlRoute);
 app.use("/", staticRoute);
-app.use('/user', userRoute);
+app.use('/user', checkAuth, userRoute);
 
 
 app.listen(PORT, () => {

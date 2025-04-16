@@ -1,12 +1,14 @@
-const sessionIdToUserMap = new Map();
+const jwt = require('jsonwebtoken'); //now users ke liye token bnayenge
+const SECRET_KEY = "aditi#123";
 
 
-function setUser(id, user) {
-    sessionIdToUserMap.set(id, user);
+function setUser(user) {
+    const token = jwt.sign(user, SECRET_KEY)
 }
 
-function getUser(id){
-    return sessionIdToUserMap.get(id);
+function getUser(token){
+    if(!token) return null;
+    return jwt.verify(token, SECRET_KEY);
 }
 
 

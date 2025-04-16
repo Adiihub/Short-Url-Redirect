@@ -23,9 +23,12 @@ async function handleUserLogin(req, res) {
     return res.render('login', { error: "Invalid Email or Password" });
   }
 
-  const sessionId = uuidv4();
-  setUser(sessionId, user);
-  res.cookie("uid", sessionId); //cookie banaya 
+  // const sessionId = uuidv4();
+  // setUser(sessionId, user);
+
+  const token = setUser(user);
+  // res.cookie("uid", sessionId); //cookie banaya 
+  res.cookie("uid", token);
 
   return res.redirect("/");
 }
