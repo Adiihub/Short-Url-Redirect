@@ -3,7 +3,10 @@ const SECRET_KEY = "aditi#123";
 
 
 function setUser(user) {
-    const token = jwt.sign(user, SECRET_KEY)
+     jwt.sign({
+        _id: user._id,
+        email: user.email
+    }, SECRET_KEY)
 }
 
 function getUser(token){
